@@ -1,12 +1,13 @@
 # TODO
 # - package zsh completion: _wgetpaste
-Summary:	Paste to Paste sites from terminal
+Summary:	A Script that automates pasting to a number of pastebin services
+Summary(pl.UTF-8):	Skrypt który automatyzuje wklejanie do wielu serwisów pastebin
 Name:		wgetpaste
-Version:	2.18
+Version:	2.20
 Release:	1
 License:	GPL v2+
 Source0:	http://wgetpaste.zlin.dk/%{name}-%{version}.tar.bz2
-# Source0-md5:	0085d679445af9e6f695d036abee106d
+# Source0-md5:	4c7259e626d834af1e51719bc9df0898
 Source1:	http://wgetpaste.zlin.dk/%{name}.example
 # Source1-md5:	77392c788659cc648a59df2d239ebe19
 Group:		Applications/Networking
@@ -22,6 +23,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A Script that automates pasting to a number of pastebin services
 relying only on bash, sed, coreutils (mktemp/sort/tr/wc/whoami/tee)
 and wget.
+
+%description(pl.UTF-8):
+Skrypt który automatyzuje wklejanie do wielu serwisów pastebin
+operając się tylko na bash, sed, coreutils (mktemp/sort/tr/wc/whoami/
+tee) i wget.
 
 %prep
 %setup -q
