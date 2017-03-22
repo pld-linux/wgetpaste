@@ -1,16 +1,14 @@
-# TODO
-# - package zsh completion: _wgetpaste
-Summary:	A Script that automates pasting to a number of pastebin services
-Summary(pl.UTF-8):	Skrypt który automatyzuje wklejanie do wielu serwisów pastebin
+Summary:	Script that automates pasting to a number of pastebin services
+Summary(pl.UTF-8):	Skrypt automatyzujący wklejanie do wielu serwisów pastebin
 Name:		wgetpaste
-Version:	2.22
+Version:	2.28
 Release:	1
 License:	GPL v2+
+Group:		Applications/Networking
 Source0:	http://wgetpaste.zlin.dk/%{name}-%{version}.tar.bz2
-# Source0-md5:	413e9faf02b044d56ce454fcd90cecbf
+# Source0-md5:	97feb02d95c1e6d5aebee68aacb5ede6
 Source1:	http://wgetpaste.zlin.dk/%{name}.example
 # Source1-md5:	77392c788659cc648a59df2d239ebe19
-Group:		Applications/Networking
 URL:		http://wgetpaste.zlin.dk/
 BuildRequires:	sed >= 4.0
 Requires:	coreutils
@@ -20,14 +18,27 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A Script that automates pasting to a number of pastebin services
+A script that automates pasting to a number of pastebin services
 relying only on bash, sed, coreutils (mktemp/sort/tr/wc/whoami/tee)
 and wget.
 
 %description(pl.UTF-8):
-Skrypt który automatyzuje wklejanie do wielu serwisów pastebin
-operając się tylko na bash, sed, coreutils (mktemp/sort/tr/wc/whoami/
-tee) i wget.
+Skrypt, który automatyzuje wklejanie do wielu serwisów pastebin,
+wykorzystując tylko programy bash, sed, coreutils
+(mktemp/sort/tr/wc/whoami/tee) i wget.
+
+%package -n zsh-completion-wgetpaste
+Summary:	ZSH completion for wgetpaste command
+Summary(pl.UTF-8):	Dopełnianie parametrów w ZSH dla polecenia wgetpaste
+Group:		Applications/Shells
+Requires:	%{name} = %{version}-%{release}
+Requires:	zsh
+
+%description -n zsh-completion-wgetpaste
+ZSH completion for wgetpaste command.
+
+%description -n zsh-completion-wgetpaste -l pl.UTF-8
+Dopełnianie parametrów w ZSH dla polecenia wgetpaste.
 
 %prep
 %setup -q
@@ -36,7 +47,9 @@ cp -a %{SOURCE1} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -Dp %{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
+install -Dp _wgetpaste $RPM_BUILD_ROOT%{_datadir}/zsh/site-functions/_wgetpaste
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,3 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc wgetpaste.example
 %attr(755,root,root) %{_bindir}/wgetpaste
+
+%files -n zsh-completion-wgetpaste
+%defattr(644,root,root,755)
+%{_datadir}/zsh/site-functions/_wgetpaste
