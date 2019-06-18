@@ -22,7 +22,7 @@ A script that automates pasting to a number of pastebin services
 relying only on bash, sed, coreutils (mktemp/sort/tr/wc/whoami/tee)
 and wget.
 
-%description(pl.UTF-8):
+%description -l pl.UTF-8
 Skrypt, który automatyzuje wklejanie do wielu serwisów pastebin,
 wykorzystując tylko programy bash, sed, coreutils
 (mktemp/sort/tr/wc/whoami/tee) i wget.
