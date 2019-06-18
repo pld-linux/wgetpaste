@@ -10,6 +10,7 @@ Source0:	http://wgetpaste.zlin.dk/%{name}-%{version}.tar.bz2
 Source1:	http://wgetpaste.zlin.dk/%{name}.example
 # Source1-md5:	77392c788659cc648a59df2d239ebe19
 URL:		http://wgetpaste.zlin.dk/
+BuildRequires:	rpmbuild(macros) >= 1.719
 BuildRequires:	sed >= 4.0
 Requires:	coreutils
 Requires:	sed
@@ -49,7 +50,7 @@ cp -a %{SOURCE1} .
 rm -rf $RPM_BUILD_ROOT
 
 install -Dp %{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
-install -Dp _wgetpaste $RPM_BUILD_ROOT%{_datadir}/zsh/site-functions/_wgetpaste
+install -Dp _wgetpaste $RPM_BUILD_ROOT%{zsh_compdir}/_wgetpaste
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,4 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n zsh-completion-wgetpaste
 %defattr(644,root,root,755)
-%{_datadir}/zsh/site-functions/_wgetpaste
+%{zsh_compdir}/_wgetpaste
