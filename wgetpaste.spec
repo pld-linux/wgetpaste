@@ -1,12 +1,12 @@
 Summary:	Script that automates pasting to a number of pastebin services
 Summary(pl.UTF-8):	Skrypt automatyzujący wklejanie do wielu serwisów pastebin
 Name:		wgetpaste
-Version:	2.28
+Version:	2.30
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://wgetpaste.zlin.dk/%{name}-%{version}.tar.bz2
-# Source0-md5:	97feb02d95c1e6d5aebee68aacb5ede6
+# Source0-md5:	d6ef00b6e51cdb4a82b9e2e011e2c46c
 Source1:	http://wgetpaste.zlin.dk/%{name}.example
 # Source1-md5:	77392c788659cc648a59df2d239ebe19
 URL:		http://wgetpaste.zlin.dk/
